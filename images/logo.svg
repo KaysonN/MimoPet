@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="89 49 357 357">
+  <defs>
+    <style>
+      .bg-cream { fill: #fffaf3; }
+      .brand-green { fill: #143d2b; stroke: #143d2b; }
+      .brand-orange { fill: #e67e22; }
+      .brand-brown { fill: #b3885f; }
+
+      .stroke-green {
+        stroke: #143d2b;
+        stroke-width: 14;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .stroke-green-thin {
+        stroke: #143d2b;
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(0, -10)">
+    <g transform="translate(142, 162) rotate(-28)">
+      <ellipse cx="0" cy="0" rx="26" ry="36" class="brand-brown stroke-green-thin" />
+    </g>
+
+    <g transform="translate(208, 122) rotate(-10)">
+      <ellipse cx="0" cy="0" rx="27" ry="38" class="brand-orange stroke-green-thin" />
+    </g>
+
+    <g transform="translate(292, 122) rotate(10)">
+      <ellipse cx="0" cy="0" rx="27" ry="38" class="brand-orange stroke-green-thin" />
+    </g>
+
+    <g transform="translate(358, 162) rotate(28)">
+      <ellipse cx="0" cy="0" rx="26" ry="36" class="brand-brown stroke-green-thin" />
+    </g>
+
+    <path d="M 312 308 L 392 388 A 20 20 0 0 0 420 360 L 340 280 Z"
+          fill="#143d2b"
+          stroke="#143d2b"
+          stroke-width="6"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+
+    <path d="M 322 312 L 388 378 A 12 12 0 0 0 405 361 L 339 295 Z"
+          class="brand-brown" />
+
+    <path d="M 345 315 L 392 362 A 6 6 0 0 0 400 354 L 353 307 Z"
+          class="brand-orange" />
+
+    <circle cx="250" cy="250" r="92" class="brand-green" />
+
+    <circle cx="250" cy="250" r="78" class="brand-orange" />
+
+    <circle cx="250" cy="250" r="62" class="brand-green" />
+
+    <circle cx="250" cy="250" r="52" class="bg-cream" />
+
+    <path d="M 250 282
+             C 245 277, 218 252, 218 234
+             A 18 18 0 0 1 250 220
+             A 18 18 0 0 1 282 234
+             C 282 252, 255 277, 250 282 Z"
+          class="brand-brown stroke-green-thin" />
+  </g>
+</svg>

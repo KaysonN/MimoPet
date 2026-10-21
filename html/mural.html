@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mural de cartazes do MimoPet, com pets perdidos e encontrados e cadastro simulado de um novo cartaz.">
+    <meta name="theme-color" content="#143d2b">
+    <title>Mural de Cartazes | MimoPet</title>
+    <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark mural-nav sticky-top" aria-label="Principal">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../images/logo.svg" alt="" width="44" height="44">
+            MimoPet
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="../index.html">Início</a></li>
+              <li class="nav-item"><a class="nav-link active" href="mural.html" aria-current="page">Mural de Cartazes</a></li>
+              <li class="nav-item"><a class="nav-link" href="guias.html">Guia de Resgate</a></li>
+            </ul>
+            <button class="btn btn-alerta ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#modalCadastro">Cadastrar Pet Perdido</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="cabecalho-pagina" aria-labelledby="titulo-pagina">
+        <div class="container">
+          <h1 class="titulo-pagina" id="titulo-pagina">Mural de cartazes</h1>
+          <p class="subtitulo">Filtre por situação ou prenda um cartaz novo. A foto enviada é lida no seu navegador e não sai deste computador.</p>
+          <div class="barra-filtros">
+            <div role="group" aria-label="Filtrar cartazes">
+              <button class="btn btn-filtro active" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+              <button class="btn btn-filtro" type="button" data-filtro="perdido" aria-pressed="false">Procura-se (Perdido)</button>
+              <button class="btn btn-filtro" type="button" data-filtro="encontrado" aria-pressed="false">Encontrados</button>
+            </div>
+          </div>
+          <p class="aviso-publicado d-none" id="aviso-publicado" role="status"></p>
+          <p class="aviso-vazio d-none" id="sem-resultados">Nenhum cartaz nesta situação. Troque o filtro ou cadastre um pet.</p>
+        </div>
+      </section>
+
+      <section class="secao pt-0" aria-labelledby="titulo-grade">
+        <div class="container">
+          <h2 class="visually-hidden" id="titulo-grade">Cartazes publicados</h2>
+          <div class="row g-4 grade-cartazes" id="grade-cartazes">
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="perdido">
+              <article class="cartaz w-100" id="cartaz-thor">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto"><img src="../images/pet2.jpg" alt="Thor, vira-lata caramelo de porte grande, com orelhas caídas." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Thor</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Vira-lata, grande</dd></div>
+                      <div><dt>Cor</dt><dd>Caramelo</dd></div>
+                      <div><dt>Onde</dt><dd>Centro — Campinas</dd></div>
+                      <div><dt>Data</dt><dd>18/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Sem coleira. Manso, pode estar assustado.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Thor" data-papel="Tutor" data-pessoa="Paulo Mendes" data-telefone="(19) 99000-4410" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="perdido">
+              <article class="cartaz w-100" id="cartaz-mel">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto"><img src="../images/pompom.png" alt="Pompom, shih-tzu branca e marrom, deitada numa manta rosa." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Pompom</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Shih Tzu, pequeno</dd></div>
+                      <div><dt>Cor</dt><dd>Branco e marrom</dd></div>
+                      <div><dt>Onde</dt><dd>Morro Santana - Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>20/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Sem coleira. Mansa, pode estar assustada.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="perdido">
+              <article class="cartaz w-100" id="cartaz-nina">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto"><img src="../images/pet5.jpg" alt="Nina, gata preta de porte pequeno, com olhos amarelos." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Nina</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Sem raça definida, pequeno</dd></div>
+                      <div><dt>Cor</dt><dd>Preta</dd></div>
+                      <div><dt>Onde</dt><dd>Savassi — Belo Horizonte</dd></div>
+                      <div><dt>Data</dt><dd>15/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Olhos amarelos. Não corra atrás dela.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Nina" data-papel="Tutora" data-pessoa="Lúcia Amaral" data-telefone="(31) 99000-9055" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="perdido">
+              <article class="cartaz w-100" id="cartaz-luna">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto"><img src="../images/amelia.png" alt="Amélia, american bully cinza, branca e caramelo, dentro de uma caixa de papelão." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Amélia</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>American Bully, médio</dd></div>
+                      <div><dt>Cor</dt><dd>Cinza e branco</dd></div>
+                      <div><dt>Onde</dt><dd>Jardim itu - Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>12/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Ela não anda muito, não deve ter ido longe.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="encontrado">
+              <article class="cartaz w-100" id="cartaz-fred">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-success">ENCONTRADO</span></div>
+                  <figure class="cartaz-foto"><img src="../images/pet6.jpg" alt="Fred, golden retriever de porte grande, com pelagem dourada." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Fred</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Golden retriever, grande</dd></div>
+                      <div><dt>Cor</dt><dd>Dourada</dd></div>
+                      <div><dt>Onde</dt><dd>Moinhos de Vento — Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>04/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Encontrado na praça. Dócil e sem coleira.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Fred" data-papel="Quem encontrou" data-pessoa="João Keller" data-telefone="(51) 99000-2218" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex" data-situacao="encontrado">
+              <article class="cartaz w-100" id="cartaz-bidu">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-success">ENCONTRADO</span></div>
+                  <figure class="cartaz-foto"><img src="../images/bob.png" alt="Bob, cão branco de porte grande, sentado, com o focinho rosado." width="600" height="600"></figure>
+                  <div class="cartaz-dados">
+                    <h2>Bob</h2>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Não definida, grande</dd></div>
+                      <div><dt>Cor</dt><dd>Branco</dd></div>
+                      <div><dt>Onde</dt><dd>Jardim Botânico - Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>09/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Encontrado perto do parque. Aguarda o tutor em lar temporário.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <h2>MimoPet</h2>
+            <p class="mb-0">Mural comunitário de pets perdidos. Cartazes, telefones e ONGs deste site são ilustrativos.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h2>ONGs parceiras</h2>
+            <ul>
+              <li>Patas do Bairro — divulgação</li>
+              <li>Coleira Solidária — lar temporário</li>
+              <li><a href="guias.html">Como acionar a rede local</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-4">
+            <h2>Mapa do site</h2>
+            <ul>
+              <li><a href="../index.html">Início</a></li>
+              <li><a href="mural.html">Mural de Cartazes</a></li>
+              <li><a href="guias.html">Guia de Resgate</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="rodape-base mb-0">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="contato-titulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="contato-titulo">Contato</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-1" id="contato-papel">Tutor</p>
+            <p class="fs-4 mb-1" id="contato-pessoa"></p>
+            <p class="mb-2"><strong>Telefone: </strong><span id="contato-telefone"></span></p>
+            <p class="mb-0" id="contato-nota"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="titulo-cadastro" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="titulo-cadastro">Cadastrar Pet Perdido</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-cadastro">
+              <p id="ajuda-cadastro">Simulação de upload. A foto é lida com FileReader e o cartaz aparece na hora, sem servidor.</p>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="nome">Nome do pet</label>
+                  <input class="form-control" id="nome" name="nome" type="text" required autocomplete="off">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="situacao">Situação</label>
+                  <select class="form-select" id="situacao" name="situacao" required>
+                    <option value="perdido">Procura-se (perdido)</option>
+                    <option value="encontrado">Encontrado</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="raca">Raça e porte</label>
+                  <input class="form-control" id="raca" name="raca" type="text" required placeholder="Ex.: vira-lata, médio">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="cor">Cor</label>
+                  <input class="form-control" id="cor" name="cor" type="text" required>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="lugar">Bairro e cidade</label>
+                  <input class="form-control" id="lugar" name="lugar" type="text" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="data">Data</label>
+                  <input class="form-control" id="data" name="data" type="date" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="pessoa">Nome de quem publica</label>
+                  <input class="form-control" id="pessoa" name="pessoa" type="text" required autocomplete="name">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="telefone">Telefone</label>
+                  <input class="form-control" id="telefone" name="telefone" type="tel" required autocomplete="tel">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="obs">Recompensa ou observação</label>
+                  <textarea class="form-control" id="obs" name="obs" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="foto-pet">Foto do pet</label>
+                  <input class="form-control" id="foto-pet" name="foto" type="file" accept="image/*" required aria-describedby="ajuda-cadastro erro-foto">
+                  <p class="text-danger fw-bold d-none mt-2" id="erro-foto" role="alert"></p>
+                  <img class="preview-foto d-none mt-3" id="preview-foto" alt="">
+                </div>
+              </div>
+              <button class="btn btn-alerta mt-3" type="submit">Publicar cartaz</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

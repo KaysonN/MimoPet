@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MimoPet é o mural comunitário para reunir pets perdidos com seus tutores.">
+    <meta name="theme-color" content="#143d2b">
+    <title>MimoPet | Ajude um pet a encontrar o caminho de casa</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark mural-nav sticky-top" aria-label="Principal">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.svg" alt="" width="44" height="44">
+            MimoPet
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Início</a></li>
+              <li class="nav-item"><a class="nav-link" href="html/mural.html">Mural de Cartazes</a></li>
+              <li class="nav-item"><a class="nav-link" href="html/guias.html">Guia de Resgate</a></li>
+            </ul>
+            <a class="btn btn-alerta ms-lg-3" href="html/mural.html#cadastrar">Cadastrar Pet Perdido</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero-faixa" aria-labelledby="titulo-hero">
+        <div class="container">
+          <div class="folha-hero">
+            <span class="pino" aria-hidden="true"></span>
+            <p class="eyebrow">Mural comunitário</p>
+            <h1 id="titulo-hero">Ajude um pet a encontrar o caminho de casa</h1>
+            <p class="hero-texto">O MimoPet é um quadro de avisos digital. Cada cartaz reúne foto, bairro e contato para a vizinhança espalhar, sem esperar um sistema complicado.</p>
+            <ul class="stats">
+              <li><strong data-contador="45" data-prefixo="+">+0</strong><span>pets reencontrados</span></li>
+              <li><strong data-contador="128">0</strong><span>cartazes ativos</span></li>
+              <li><strong data-contador="36">0</strong><span>bairros mobilizados</span></li>
+            </ul>
+            <div class="acoes-hero">
+              <a class="btn btn-alerta btn-lg" href="html/mural.html">Abrir o mural</a>
+              <a class="btn btn-verde btn-lg" href="html/guias.html">Ler o guia de resgate</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao" aria-labelledby="titulo-urgentes">
+        <div class="container">
+          <h2 class="titulo-secao" id="titulo-urgentes">Casos Urgentes</h2>
+          <p class="subtitulo">Três cartazes recentes. Fotos, nomes, bairros e telefones são ilustrativos.</p>
+          <div class="row g-4 grade-cartazes">
+            <div class="col-md-4 d-flex">
+              <article class="cartaz w-100">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto">
+                    <img src="images/amelia.png" alt="Amélia, american bully cinza, branca e caramelo, dentro de uma caixa de papelão." width="600" height="600">
+                  </figure>
+                  <div class="cartaz-dados">
+                    <h3>Amélia</h3>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>American Bully, médio</dd></div>
+                      <div><dt>Cor</dt><dd>Cinza e branco</dd></div>
+                      <div><dt>Onde</dt><dd>Jardim Itu — Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>12/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Ela não anda muito, não deve ter ido longe.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4 d-flex">
+              <article class="cartaz w-100">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <figure class="cartaz-foto">
+                    <img src="images/pompom.png" alt="Pompom, shih-tzu branca e marrom, deitada numa manta rosa." width="600" height="600">
+                  </figure>
+                  <div class="cartaz-dados">
+                    <h3>Pompom</h3>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Shih Tzu, pequeno</dd></div>
+                      <div><dt>Cor</dt><dd>Branco e marrom</dd></div>
+                      <div><dt>Onde</dt><dd>Morro Santana — Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>20/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Sem coleira. Mansa, pode estar assustada.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4 d-flex">
+              <article class="cartaz w-100">
+                <div class="cartaz-papel">
+                  <div class="cartaz-topo"><span class="badge bg-success">ENCONTRADO</span></div>
+                  <figure class="cartaz-foto">
+                    <img src="images/bob.png" alt="Bob, cão branco de porte grande, sentado, com o focinho rosado." width="600" height="600">
+                  </figure>
+                  <div class="cartaz-dados">
+                    <h3>Bob</h3>
+                    <dl>
+                      <div><dt>Raça e porte</dt><dd>Não definida, grande</dd></div>
+                      <div><dt>Cor</dt><dd>Branco</dd></div>
+                      <div><dt>Onde</dt><dd>Jardim Botânico — Porto Alegre</dd></div>
+                      <div><dt>Data</dt><dd>09/10/2026</dd></div>
+                      <div><dt>Observação</dt><dd>Encontrado perto do parque. Aguarda o tutor em lar temporário.</dd></div>
+                    </dl>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <h2>MimoPet</h2>
+            <p class="mb-0">Mural comunitário de pets perdidos. Cartazes, telefones e ONGs deste site são ilustrativos.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h2>ONGs parceiras</h2>
+            <ul>
+              <li>Patas do Bairro — divulgação</li>
+              <li>Coleira Solidária — lar temporário</li>
+              <li><a href="html/guias.html">Como acionar a rede local</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-4">
+            <h2>Mapa do site</h2>
+            <ul>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="html/mural.html">Mural de Cartazes</a></li>
+              <li><a href="html/guias.html">Guia de Resgate</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="rodape-base mb-0">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="contato-titulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="contato-titulo">Contato</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-1"><span id="contato-papel">Tutor</span></p>
+            <p class="fs-4 mb-1" id="contato-pessoa"></p>
+            <p class="mb-2"><strong>Telefone: </strong><span id="contato-telefone"></span></p>
+            <p class="mb-0" id="contato-nota"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
