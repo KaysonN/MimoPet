@@ -277,7 +277,23 @@
   }
 
   const modalCadastro = document.getElementById("modalCadastro");
-  if (modalCadastro && window.location.hash === "#cadastrar") {
-    bootstrap.Modal.getOrCreateInstance(modalCadastro).show();
+  if (modalCadastro) {
+    const definirSituacao = (valor) => {
+      const situacao = document.getElementById("situacao");
+      if (situacao) {
+        situacao.value = valor;
+      }
+    };
+
+    if (window.location.hash === "#cadastrar" || window.location.hash === "#cadastrar-encontrado") {
+      definirSituacao(window.location.hash === "#cadastrar-encontrado" ? "encontrado" : "perdido");
+      bootstrap.Modal.getOrCreateInstance(modalCadastro).show();
+    }
+
+    document.querySelectorAll("[data-bs-target='#modalCadastro']").forEach((botao) => {
+      botao.addEventListener("click", () => {
+        definirSituacao("perdido");
+      });
+    });
   }
 })();

@@ -18,7 +18,7 @@ Fotos, nomes, bairros, telefones e ONGs publicados hoje são ilustrativos. Serve
 
 | Página | Função |
 | --- | --- |
-| Início | Apresenta o mural, mostra o alcance da rede e destaca três casos urgentes. |
+| Início | Apresenta o mural, destaca três casos urgentes e separa dois caminhos para quem encontrou um pet: procurar no mural ou cadastrar o animal encontrado. |
 | Mural de Cartazes | Lista os cartazes e permite filtrar entre todos, procura-se e encontrados. |
 | Guia de Resgate | Reúne, em quatro passos, o que fazer ao perder ou encontrar um pet. |
 

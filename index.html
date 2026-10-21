@@ -38,25 +38,33 @@
     <main id="conteudo">
       <section class="hero-faixa" aria-labelledby="titulo-hero">
         <div class="container">
-          <div class="folha-hero">
+          <div class="folha-hero folha-entrada">
             <span class="pino" aria-hidden="true"></span>
-            <p class="eyebrow">Mural comunitário</p>
-            <h1 id="titulo-hero">Ajude um pet a encontrar o caminho de casa</h1>
-            <p class="hero-texto">O MimoPet é um quadro de avisos digital. Cada cartaz reúne foto, bairro e contato para a vizinhança espalhar, sem esperar um sistema complicado.</p>
-            <ul class="stats">
-              <li><strong data-contador="45" data-prefixo="+">+0</strong><span>pets reencontrados</span></li>
-              <li><strong data-contador="128">0</strong><span>cartazes ativos</span></li>
-              <li><strong data-contador="36">0</strong><span>bairros mobilizados</span></li>
-            </ul>
-            <div class="acoes-hero">
-              <a class="btn btn-alerta btn-lg" href="html/mural.html">Abrir o mural</a>
-              <a class="btn btn-verde btn-lg" href="html/guias.html">Ler o guia de resgate</a>
+            <div class="entrada-grade">
+              <div>
+                <p class="eyebrow">Mural comunitário</p>
+                <h1 id="titulo-hero">Ajude um pet a encontrar o caminho de casa</h1>
+                <p class="hero-texto">Cada cartaz reúne foto, bairro e contato para a vizinhança espalhar.</p>
+                <ul class="stats">
+                  <li><strong data-contador="45" data-prefixo="+">+0</strong><span>pets reencontrados</span></li>
+                  <li><strong data-contador="128">0</strong><span>cartazes ativos</span></li>
+                  <li><strong data-contador="36">0</strong><span>bairros mobilizados</span></li>
+                </ul>
+              </div>
+              <div class="entrada-encontrei">
+                <h2 id="titulo-encontrei">Encontrei um pet</h2>
+                <img class="ilustra-pets" src="images/encontreiumpet.jpeg" alt="Dois gatos e dois cães sentados lado a lado." width="760" height="340">
+                <div class="acoes-encontrei">
+                  <a class="btn btn-procurar" href="html/mural.html">Procurar no mural</a>
+                  <a class="btn btn-encontrado" href="html/mural.html#cadastrar-encontrado">Cadastrar pet encontrado</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="secao" aria-labelledby="titulo-urgentes">
+      <section class="secao secao-urgente" aria-labelledby="titulo-urgentes">
         <div class="container">
           <h2 class="titulo-secao" id="titulo-urgentes">Casos Urgentes</h2>
           <p class="subtitulo">Três cartazes recentes. Fotos, nomes, bairros e telefones são ilustrativos.</p>
