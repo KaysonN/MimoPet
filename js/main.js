@@ -1,6 +1,36 @@
 (function () {
   "use strict";
 
+  const botaoTema = document.getElementById("botao-tema");
+
+  const aplicarTema = (tema) => {
+    const escuro = tema === "escuro";
+    document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute("content", escuro ? "#102e22" : "#143d2b");
+    }
+    if (!botaoTema) {
+      return;
+    }
+    botaoTema.setAttribute("aria-pressed", escuro ? "true" : "false");
+    botaoTema.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
+  };
+
+  aplicarTema(document.documentElement.getAttribute("data-tema") || "claro");
+
+  if (botaoTema) {
+    botaoTema.addEventListener("click", () => {
+      const proximo = document.documentElement.getAttribute("data-tema") === "escuro" ? "claro" : "escuro";
+      try {
+        localStorage.setItem("mimo-tema", proximo);
+      } catch (erro) {
+        return aplicarTema(proximo);
+      }
+      aplicarTema(proximo);
+    });
+  }
+
   const ano = document.getElementById("ano-atual");
   if (ano) {
     ano.textContent = String(new Date().getFullYear());
@@ -181,7 +211,7 @@
     const botao = document.createElement("button");
     botao.type = "button";
     botao.className = "btn btn-contato";
-    botao.textContent = "Ver Contato do Tutor";
+    botao.textContent = "Ver Contato";
     botao.dataset.bsToggle = "modal";
     botao.dataset.bsTarget = "#modalContato";
     botao.dataset.pet = dados.nome;

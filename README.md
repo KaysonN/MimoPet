@@ -9,7 +9,7 @@ O MimoPet transforma o quadro de avisos do bairro em uma página simples de usar
 Quando um animal some, o tempo conta mais do que um sistema complicado. As pessoas já espalham foto em grupo, portaria e comércio. O MimoPet organiza esse gesto.
 
 - O cartaz imita um papel de “procura-se”, fácil de ler de relance.
-- O contato do tutor fica atrás de um clique, para a ficha não virar um bloco de texto.
+- O contato fica atrás de um clique, para a ficha não virar um bloco de texto.
 - O guia de resgate vem antes do improviso: o que fazer nas primeiras 24 horas, como se aproximar, quando procurar veterinário ou microchip e quem acionar na região.
 
 Fotos, nomes, bairros, telefones e ONGs publicados hoje são ilustrativos. Servem para apresentar o produto. Nenhum desses contatos corresponde a uma pessoa real.

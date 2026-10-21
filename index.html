@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="MimoPet é o mural comunitário para reunir pets perdidos com seus tutores.">
     <meta name="theme-color" content="#143d2b">
+    <script>
+      (function () {
+        var salvo = null;
+        try { salvo = localStorage.getItem("mimo-tema"); } catch (erro) { salvo = null; }
+        var escuro = salvo ? salvo === "escuro" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+      })();
+    </script>
     <title>MimoPet | Ajude um pet a encontrar o caminho de casa</title>
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -29,6 +37,21 @@
               <li class="nav-item"><a class="nav-link" href="html/mural.html">Mural de Cartazes</a></li>
               <li class="nav-item"><a class="nav-link" href="html/guias.html">Guia de Resgate</a></li>
             </ul>
+            <button class="btn-tema" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
+              <span class="tema-trilho">
+                <span class="tema-knob">
+                  <svg class="tema-sol" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                      <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
+                    </g>
+                  </svg>
+                  <svg class="tema-lua" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                  </svg>
+                </span>
+              </span>
+            </button>
             <a class="btn btn-alerta ms-lg-3" href="html/mural.html#cadastrar">Cadastrar Pet Perdido</a>
           </div>
         </div>
@@ -85,7 +108,7 @@
                       <div><dt>Data</dt><dd>12/10/2026</dd></div>
                       <div><dt>Observação</dt><dd>Ela não anda muito, não deve ter ido longe.</dd></div>
                     </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                   </div>
                 </div>
               </article>
@@ -106,7 +129,7 @@
                       <div><dt>Data</dt><dd>20/10/2026</dd></div>
                       <div><dt>Observação</dt><dd>Sem coleira. Mansa, pode estar assustada.</dd></div>
                     </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                   </div>
                 </div>
               </article>
@@ -127,7 +150,7 @@
                       <div><dt>Data</dt><dd>09/10/2026</dd></div>
                       <div><dt>Observação</dt><dd>Encontrado perto do parque. Aguarda o tutor em lar temporário.</dd></div>
                     </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato do Tutor</button>
+                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                   </div>
                 </div>
               </article>
