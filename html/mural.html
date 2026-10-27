@@ -21,8 +21,8 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark mural-nav sticky-top" aria-label="Principal">
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg navbar-dark mural-nav" aria-label="Principal">
         <div class="container">
           <a class="navbar-brand" href="../index.html">
             <img src="../images/logo.svg" alt="" width="44" height="44">
@@ -32,27 +32,32 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="menuPrincipal">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="../index.html">Início</a></li>
               <li class="nav-item"><a class="nav-link active" href="mural.html" aria-current="page">Mural de Cartazes</a></li>
               <li class="nav-item"><a class="nav-link" href="guias.html">Guia de Resgate</a></li>
             </ul>
-            <button class="btn-tema" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
-              <span class="tema-trilho">
-                <span class="tema-knob">
-                  <svg class="tema-sol" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                      <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
-                    </g>
-                  </svg>
-                  <svg class="tema-lua" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                    <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
-                  </svg>
+            <div class="menu-acoes">
+            <div class="menu-tema">
+              <span class="menu-tema-rotulo">Tema</span>
+              <button class="btn-tema" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
+                <span class="tema-trilho">
+                  <span class="tema-knob">
+                    <svg class="tema-sol" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                      <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
+                      </g>
+                    </svg>
+                    <svg class="tema-lua" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                      <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                    </svg>
+                  </span>
                 </span>
-              </span>
-            </button>
+              </button>
+            </div>
             <button class="btn btn-alerta ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#modalCadastro">Cadastrar Pet Perdido</button>
+            </div>
           </div>
         </div>
       </nav>
