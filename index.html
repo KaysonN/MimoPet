@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="MimoPet é o mural comunitário para reunir pets perdidos com seus tutores.">
-    <meta name="theme-color" content="#143d2b">
+    <meta name="theme-color" content="#198754">
     <script>
       (function () {
         var salvo = null;
         try { salvo = localStorage.getItem("mimo-tema"); } catch (erro) { salvo = null; }
         var escuro = salvo ? salvo === "escuro" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+        document.documentElement.setAttribute("data-bs-theme", escuro ? "dark" : "light");
       })();
     </script>
     <title>MimoPet | Ajude um pet a encontrar o caminho de casa</title>
@@ -18,45 +18,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <body class="bg-body-tertiary">
+    <a class="visually-hidden-focusable btn btn-warning fw-semibold m-2" href="#conteudo">Ir para o conteúdo</a>
 
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-dark mural-nav" aria-label="Principal">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-success shadow-sm" data-bs-theme="dark" aria-label="Principal">
         <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img src="images/logo.svg" alt="" width="44" height="44">
+          <a class="navbar-brand d-flex align-items-center gap-2 fw-bolder fs-4" href="index.html">
+            <img class="d-block" src="images/logo.svg" alt="" width="44" height="44">
             MimoPet
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="menuPrincipal">
+          <div class="collapse navbar-collapse py-2 py-lg-0" id="menuPrincipal">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Início</a></li>
-              <li class="nav-item"><a class="nav-link" href="html/mural.html">Mural de Cartazes</a></li>
-              <li class="nav-item"><a class="nav-link" href="html/guias.html">Guia de Resgate</a></li>
+              <li class="nav-item"><a class="nav-link active text-decoration-underline d-flex align-items-center fw-bold" href="index.html" aria-current="page">Início</a></li>
+              <li class="nav-item"><a class="nav-link d-flex align-items-center fw-bold" href="html/mural.html">Mural de Cartazes</a></li>
+              <li class="nav-item"><a class="nav-link d-flex align-items-center fw-bold" href="html/guias.html">Guia de Resgate</a></li>
             </ul>
-            <div class="menu-acoes">
-            <div class="menu-tema">
-              <span class="menu-tema-rotulo">Tema</span>
-              <button class="btn-tema" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
-                <span class="tema-trilho">
-                  <span class="tema-knob">
-                    <svg class="tema-sol" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-                      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                        <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
-                      </g>
-                    </svg>
-                    <svg class="tema-lua" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
-                    </svg>
-                  </span>
-                </span>
+            <div class="d-flex align-items-center justify-content-between gap-3 py-2 py-lg-0 ms-lg-3">
+              <span class="fw-semibold text-white d-lg-none">Tema</span>
+              <button class="btn btn-outline-light" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
+                <svg id="tema-sol" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
+                  </g>
+                </svg>
+                <svg id="tema-lua" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                </svg>
               </button>
             </div>
-            <a class="btn btn-alerta ms-lg-3" href="html/mural.html#cadastrar">Cadastrar Pet Perdido</a>
+            <div class="d-grid d-lg-block ms-lg-2">
+              <a class="btn btn-warning fw-semibold" href="html/mural.html#cadastrar">Cadastrar Pet Perdido</a>
             </div>
           </div>
         </div>
@@ -64,27 +60,45 @@
     </header>
 
     <main id="conteudo">
-      <section class="hero-faixa" aria-labelledby="titulo-hero">
+      <section class="pt-3" aria-labelledby="titulo-hero">
         <div class="container">
-          <div class="folha-hero folha-entrada">
-            <span class="pino" aria-hidden="true"></span>
-            <div class="entrada-grade">
-              <div>
-                <p class="eyebrow">Mural comunitário</p>
-                <h1 id="titulo-hero">Ajude um pet a encontrar o caminho de casa</h1>
-                <p class="hero-texto">Cada cartaz reúne foto, bairro e contato para a vizinhança espalhar.</p>
-                <ul class="stats">
-                  <li><strong data-contador="800" data-prefixo="+">+0</strong><span>pets reencontrados</span></li>
-                  <li><strong data-contador="128">0</strong><span>cartazes ativos</span></li>
-                  <li><strong data-contador="36">0</strong><span>bairros mobilizados</span></li>
-                </ul>
-              </div>
-              <div class="entrada-encontrei">
-                <h2 id="titulo-encontrei">Encontrei um pet</h2>
-                <img class="ilustra-pets" src="images/encontreiumpet.jpeg" alt="Dois gatos e dois cães sentados lado a lado." width="760" height="340">
-                <div class="acoes-encontrei">
-                  <a class="btn btn-procurar" href="html/mural.html">Procurar no mural</a>
-                  <a class="btn btn-encontrado" href="html/mural.html#cadastrar-encontrado">Cadastrar pet encontrado</a>
+          <div class="card shadow border-0">
+            <div class="card-body p-3 p-md-4">
+              <div class="row g-3 g-md-4 align-items-center">
+                <div class="col-md-6">
+                  <p class="text-success-emphasis text-uppercase fw-bold small mb-2">Mural comunitário</p>
+                  <h1 id="titulo-hero" class="fw-bold mb-2">Ajude um pet a encontrar o caminho de casa</h1>
+                  <p class="text-secondary mb-0">Cada cartaz reúne foto, bairro e contato para a vizinhança espalhar.</p>
+                  <ul class="list-unstyled row row-cols-3 g-2 mt-3 mb-0">
+                    <li class="col">
+                      <div class="border rounded bg-body-tertiary p-2 text-center h-100">
+                        <strong class="d-block fs-4 text-success-emphasis" data-contador="800" data-prefixo="+">+0</strong>
+                        <span class="small text-secondary">pets reencontrados</span>
+                      </div>
+                    </li>
+                    <li class="col">
+                      <div class="border rounded bg-body-tertiary p-2 text-center h-100">
+                        <strong class="d-block fs-4 text-success-emphasis" data-contador="128">0</strong>
+                        <span class="small text-secondary">cartazes ativos</span>
+                      </div>
+                    </li>
+                    <li class="col">
+                      <div class="border rounded bg-body-tertiary p-2 text-center h-100">
+                        <strong class="d-block fs-4 text-success-emphasis" data-contador="36">0</strong>
+                        <span class="small text-secondary">bairros mobilizados</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-body-secondary rounded-4 p-3 text-center">
+                    <h2 id="titulo-encontrei" class="fw-bold fs-4 mb-0">Encontrei um pet</h2>
+                    <img class="img-fluid d-block w-100 object-fit-contain rounded my-2" src="images/encontreiumpet.jpeg" alt="Dois gatos e dois cães sentados lado a lado." width="760" height="340">
+                    <div class="d-grid gap-2 d-sm-flex">
+                      <a class="btn btn-success fw-semibold flex-grow-1" href="html/mural.html">Procurar no mural</a>
+                      <a class="btn btn-warning fw-semibold flex-grow-1" href="html/mural.html#cadastrar-encontrado">Cadastrar pet encontrado</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -92,71 +106,65 @@
         </div>
       </section>
 
-      <section class="secao secao-urgente" aria-labelledby="titulo-urgentes">
+      <section class="pt-4 pb-5" aria-labelledby="titulo-urgentes">
         <div class="container">
-          <h2 class="titulo-secao" id="titulo-urgentes">Casos Recentes</h2>
-          <p class="subtitulo">Fotos, nomes, bairros e telefones são ilustrativos. Os animais são todos dos desenvolvedores. Nenhum animal sofreu maus-tratos.</p>
-          <div class="row g-4 grade-cartazes">
+          <h2 class="fw-bold" id="titulo-urgentes">Casos Recentes</h2>
+          <p class="text-secondary">Fotos, nomes, bairros e telefones são ilustrativos. Os animais são todos dos desenvolvedores. Nenhum animal sofreu maus-tratos.</p>
+          <div class="row g-4">
             <div class="col-md-4 d-flex">
-              <article class="cartaz w-100">
-                <div class="cartaz-papel">
-                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
-                  <figure class="cartaz-foto">
-                    <img src="images/amelia.png" alt="Amélia, american bully cinza, branca e caramelo, dentro de uma caixa de papelão." width="600" height="600">
-                  </figure>
-                  <div class="cartaz-dados">
-                    <h3>Amélia</h3>
-                    <dl>
-                      <div><dt>Raça e porte</dt><dd>American Bully, médio</dd></div>
-                      <div><dt>Cor</dt><dd>Cinza e branco</dd></div>
-                      <div><dt>Onde</dt><dd>Jardim Itu — Porto Alegre</dd></div>
-                      <div><dt>Data</dt><dd>12/10/2026</dd></div>
-                      <div><dt>Observação</dt><dd>Ela não anda muito, não deve ter ido longe.</dd></div>
-                    </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
+              <article class="card w-100 h-100 shadow-sm">
+                <div class="card-body d-flex flex-column flex-grow-1">
+                  <div class="d-flex justify-content-center mb-2"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <div class="ratio ratio-1x1 w-100 mb-3 rounded overflow-hidden flex-shrink-0">
+                    <img class="object-fit-cover" src="images/amelia.png" alt="Amélia, american bully cinza, branca e caramelo, dentro de uma caixa de papelão." width="600" height="600">
                   </div>
+                  <h3 class="fs-3">Amélia</h3>
+                  <dl class="mb-3">
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Raça e porte</dt><dd class="mb-0">American Bully, médio</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Cor</dt><dd class="mb-0">Cinza e branco</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Onde</dt><dd class="mb-0">Jardim Itu — Porto Alegre</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Data</dt><dd class="mb-0">12/10/2026</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Observação</dt><dd class="mb-0">Ela não anda muito, não deve ter ido longe.</dd></div>
+                  </dl>
+                  <button class="btn btn-danger w-100 mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Amélia" data-papel="Tutora" data-pessoa="Camila Ribeiro" data-telefone="(11) 99000-1204" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                 </div>
               </article>
             </div>
             <div class="col-md-4 d-flex">
-              <article class="cartaz w-100">
-                <div class="cartaz-papel">
-                  <div class="cartaz-topo"><span class="badge bg-danger">PROCURA-SE</span></div>
-                  <figure class="cartaz-foto">
-                    <img src="images/pompom.png" alt="Pompom, shih-tzu branca e marrom, deitada numa manta rosa." width="600" height="600">
-                  </figure>
-                  <div class="cartaz-dados">
-                    <h3>Pompom</h3>
-                    <dl>
-                      <div><dt>Raça e porte</dt><dd>Shih Tzu, pequeno</dd></div>
-                      <div><dt>Cor</dt><dd>Branco e marrom</dd></div>
-                      <div><dt>Onde</dt><dd>Morro Santana — Porto Alegre</dd></div>
-                      <div><dt>Data</dt><dd>20/10/2026</dd></div>
-                      <div><dt>Observação</dt><dd>Sem coleira. Mansa, pode estar assustada.</dd></div>
-                    </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
+              <article class="card w-100 h-100 shadow-sm">
+                <div class="card-body d-flex flex-column flex-grow-1">
+                  <div class="d-flex justify-content-center mb-2"><span class="badge bg-danger">PROCURA-SE</span></div>
+                  <div class="ratio ratio-1x1 w-100 mb-3 rounded overflow-hidden flex-shrink-0">
+                    <img class="object-fit-cover" src="images/pompom.png" alt="Pompom, shih-tzu branca e marrom, deitada numa manta rosa." width="600" height="600">
                   </div>
+                  <h3 class="fs-3">Pompom</h3>
+                  <dl class="mb-3">
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Raça e porte</dt><dd class="mb-0">Shih Tzu, pequeno</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Cor</dt><dd class="mb-0">Branco e marrom</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Onde</dt><dd class="mb-0">Morro Santana — Porto Alegre</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Data</dt><dd class="mb-0">20/10/2026</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Observação</dt><dd class="mb-0">Sem coleira. Mansa, pode estar assustada.</dd></div>
+                  </dl>
+                  <button class="btn btn-danger w-100 mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Pompom" data-papel="Tutora" data-pessoa="Helena Dias" data-telefone="(41) 99000-7781" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                 </div>
               </article>
             </div>
             <div class="col-md-4 d-flex">
-              <article class="cartaz w-100">
-                <div class="cartaz-papel">
-                  <div class="cartaz-topo"><span class="badge bg-success">ENCONTRADO</span></div>
-                  <figure class="cartaz-foto">
-                    <img src="images/bob.png" alt="Bob, cão branco de porte grande, sentado, com o focinho rosado." width="600" height="600">
-                  </figure>
-                  <div class="cartaz-dados">
-                    <h3>Bob</h3>
-                    <dl>
-                      <div><dt>Raça e porte</dt><dd>Não definida, grande</dd></div>
-                      <div><dt>Cor</dt><dd>Branco</dd></div>
-                      <div><dt>Onde</dt><dd>Jardim Botânico — Porto Alegre</dd></div>
-                      <div><dt>Data</dt><dd>09/10/2026</dd></div>
-                      <div><dt>Observação</dt><dd>Encontrado perto do parque. Aguarda o tutor em lar temporário.</dd></div>
-                    </dl>
-                    <button class="btn btn-contato" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
+              <article class="card w-100 h-100 shadow-sm">
+                <div class="card-body d-flex flex-column flex-grow-1">
+                  <div class="d-flex justify-content-center mb-2"><span class="badge bg-success">ENCONTRADO</span></div>
+                  <div class="ratio ratio-1x1 w-100 mb-3 rounded overflow-hidden flex-shrink-0">
+                    <img class="object-fit-cover" src="images/bob.png" alt="Bob, cão branco de porte grande, sentado, com o focinho rosado." width="600" height="600">
                   </div>
+                  <h3 class="fs-3">Bob</h3>
+                  <dl class="mb-3">
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Raça e porte</dt><dd class="mb-0">Não definida, grande</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Cor</dt><dd class="mb-0">Branco</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Onde</dt><dd class="mb-0">Jardim Botânico — Porto Alegre</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Data</dt><dd class="mb-0">09/10/2026</dd></div>
+                    <div class="border-bottom py-1"><dt class="small text-uppercase text-secondary fw-bold mb-0">Observação</dt><dd class="mb-0">Encontrado perto do parque. Aguarda o tutor em lar temporário.</dd></div>
+                  </dl>
+                  <button class="btn btn-danger w-100 mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#modalContato" data-pet="Bob" data-papel="Quem encontrou" data-pessoa="Abrigo Leste" data-telefone="(21) 99000-3302" data-nota="Número ilustrativo. Não corresponde a uma pessoa real.">Ver Contato</button>
                 </div>
               </article>
             </div>
@@ -165,31 +173,31 @@
       </section>
     </main>
 
-    <footer class="rodape">
+    <footer class="bg-dark text-white py-5">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-5">
-            <h2>MimoPet</h2>
+            <h2 class="h4">MimoPet</h2>
             <p class="mb-0">Mural comunitário de pets perdidos. Cartazes, telefones e ONGs deste site são ilustrativos.</p>
           </div>
           <div class="col-6 col-md-3">
-            <h2>ONGs parceiras</h2>
-            <ul>
-              <li>Patas do Bairro — divulgação</li>
-              <li>Coleira Solidária — lar temporário</li>
-              <li><a href="html/guias.html">Como acionar a rede local</a></li>
+            <h2 class="h4">ONGs parceiras</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1">Patas do Bairro — divulgação</li>
+              <li class="mb-1">Coleira Solidária — lar temporário</li>
+              <li><a class="link-warning fw-semibold" href="html/guias.html">Como acionar a rede local</a></li>
             </ul>
           </div>
           <div class="col-6 col-md-4">
-            <h2>Mapa do site</h2>
-            <ul>
-              <li><a href="index.html">Início</a></li>
-              <li><a href="html/mural.html">Mural de Cartazes</a></li>
-              <li><a href="html/guias.html">Guia de Resgate</a></li>
+            <h2 class="h4">Mapa do site</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1"><a class="link-warning fw-semibold" href="index.html">Início</a></li>
+              <li class="mb-1"><a class="link-warning fw-semibold" href="html/mural.html">Mural de Cartazes</a></li>
+              <li><a class="link-warning fw-semibold" href="html/guias.html">Guia de Resgate</a></li>
             </ul>
           </div>
         </div>
-        <p class="rodape-base mb-0">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
+        <p class="border-top border-light border-opacity-25 mb-0 mt-4 pt-3">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
       </div>
     </footer>
 
@@ -204,7 +212,7 @@
             <p class="mb-1"><span id="contato-papel">Tutor</span></p>
             <p class="fs-4 mb-1" id="contato-pessoa"></p>
             <p class="mb-2"><strong>Telefone: </strong><span id="contato-telefone"></span></p>
-            <p class="mb-0" id="contato-nota"></p>
+            <p class="mb-0 text-secondary" id="contato-nota"></p>
           </div>
         </div>
       </div>

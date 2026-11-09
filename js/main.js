@@ -5,10 +5,10 @@
 
   const aplicarTema = (tema) => {
     const escuro = tema === "escuro";
-    document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+    document.documentElement.setAttribute("data-bs-theme", escuro ? "dark" : "light");
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      meta.setAttribute("content", escuro ? "#102e22" : "#143d2b");
+      meta.setAttribute("content", escuro ? "#212529" : "#198754");
     }
     if (!botaoTema) {
       return;
@@ -17,11 +17,11 @@
     botaoTema.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
   };
 
-  aplicarTema(document.documentElement.getAttribute("data-tema") || "claro");
+  aplicarTema(document.documentElement.getAttribute("data-bs-theme") === "dark" ? "escuro" : "claro");
 
   if (botaoTema) {
     botaoTema.addEventListener("click", () => {
-      const proximo = document.documentElement.getAttribute("data-tema") === "escuro" ? "claro" : "escuro";
+      const proximo = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "claro" : "escuro";
       try {
         localStorage.setItem("mimo-tema", proximo);
       } catch (erro) {
@@ -78,7 +78,7 @@
     let visiveis = 0;
     grade.querySelectorAll("[data-situacao]").forEach((cartaz) => {
       const mostrar = filtro === "todos" || cartaz.dataset.situacao === filtro;
-      cartaz.classList.toggle("oculto", !mostrar);
+      cartaz.classList.toggle("d-none", !mostrar);
       if (mostrar) {
         visiveis += 1;
       }
@@ -161,8 +161,11 @@
 
   const linha = (rotulo, valor) => {
     const grupo = document.createElement("div");
+    grupo.className = "border-bottom py-1";
     const termo = document.createElement("dt");
+    termo.className = "small text-uppercase text-secondary fw-bold mb-0";
     const desc = document.createElement("dd");
+    desc.className = "mb-0";
     termo.textContent = rotulo;
     desc.textContent = valor;
     grupo.append(termo, desc);
@@ -175,31 +178,34 @@
     coluna.dataset.situacao = dados.situacao;
 
     const artigo = document.createElement("article");
-    artigo.className = "cartaz w-100";
+    artigo.className = "card w-100 h-100 shadow-sm";
 
     const papel = document.createElement("div");
-    papel.className = "cartaz-papel";
+    papel.className = "card-body d-flex flex-column flex-grow-1";
 
     const topo = document.createElement("div");
-    topo.className = "cartaz-topo";
+    topo.className = "d-flex justify-content-center mb-2";
     const selo = document.createElement("span");
     const perdido = dados.situacao === "perdido";
     selo.className = "badge " + (perdido ? "bg-danger" : "bg-success");
     selo.textContent = perdido ? "PROCURA-SE" : "ENCONTRADO";
     topo.append(selo);
 
-    const figura = document.createElement("figure");
-    figura.className = "cartaz-foto";
+    const figura = document.createElement("div");
+    figura.className = "ratio ratio-1x1 w-100 mb-3 rounded overflow-hidden flex-shrink-0";
     const imagem = document.createElement("img");
+    imagem.className = "object-fit-cover";
     imagem.src = dados.foto;
     imagem.alt = "Foto de " + dados.nome + ", " + dados.raca + ", cor " + dados.cor + ".";
     figura.append(imagem);
 
     const bloco = document.createElement("div");
-    bloco.className = "cartaz-dados";
+    bloco.className = "d-flex flex-column flex-grow-1";
     const titulo = document.createElement("h2");
+    titulo.className = "fs-3";
     titulo.textContent = dados.nome;
     const lista = document.createElement("dl");
+    lista.className = "mb-3";
     lista.append(
       linha("Raça e porte", dados.raca),
       linha("Cor", dados.cor),
@@ -210,7 +216,7 @@
 
     const botao = document.createElement("button");
     botao.type = "button";
-    botao.className = "btn btn-contato";
+    botao.className = "btn btn-danger w-100 mt-auto";
     botao.textContent = "Ver Contato";
     botao.dataset.bsToggle = "modal";
     botao.dataset.bsTarget = "#modalContato";
@@ -299,7 +305,7 @@
       if (modal) {
         modal.hide();
       }
-      const novo = grade.querySelector(".cartaz");
+      const novo = grade.querySelector("article");
       if (novo) {
         novo.scrollIntoView({ behavior: "smooth", block: "center" });
       }

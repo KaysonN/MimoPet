@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Guia prático do MimoPet sobre o que fazer ao perder ou encontrar um pet.">
-    <meta name="theme-color" content="#143d2b">
+    <meta name="theme-color" content="#198754">
     <script>
       (function () {
         var salvo = null;
         try { salvo = localStorage.getItem("mimo-tema"); } catch (erro) { salvo = null; }
         var escuro = salvo ? salvo === "escuro" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+        document.documentElement.setAttribute("data-bs-theme", escuro ? "dark" : "light");
       })();
     </script>
     <title>Guia de Resgate | MimoPet</title>
@@ -18,45 +18,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <body class="bg-body-tertiary">
+    <a class="visually-hidden-focusable btn btn-warning fw-semibold m-2" href="#conteudo">Ir para o conteúdo</a>
 
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-dark mural-nav" aria-label="Principal">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-success shadow-sm" data-bs-theme="dark" aria-label="Principal">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">
-            <img src="../images/logo.svg" alt="" width="44" height="44">
+          <a class="navbar-brand d-flex align-items-center gap-2 fw-bolder fs-4" href="../index.html">
+            <img class="d-block" src="../images/logo.svg" alt="" width="44" height="44">
             MimoPet
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="menuPrincipal">
+          <div class="collapse navbar-collapse py-2 py-lg-0" id="menuPrincipal">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="../index.html">Início</a></li>
-              <li class="nav-item"><a class="nav-link" href="mural.html">Mural de Cartazes</a></li>
-              <li class="nav-item"><a class="nav-link active" href="guias.html" aria-current="page">Guia de Resgate</a></li>
+              <li class="nav-item"><a class="nav-link d-flex align-items-center fw-bold" href="../index.html">Início</a></li>
+              <li class="nav-item"><a class="nav-link d-flex align-items-center fw-bold" href="mural.html">Mural de Cartazes</a></li>
+              <li class="nav-item"><a class="nav-link active text-decoration-underline d-flex align-items-center fw-bold" href="guias.html" aria-current="page">Guia de Resgate</a></li>
             </ul>
-            <div class="menu-acoes">
-            <div class="menu-tema">
-              <span class="menu-tema-rotulo">Tema</span>
-              <button class="btn-tema" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
-                <span class="tema-trilho">
-                  <span class="tema-knob">
-                    <svg class="tema-sol" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-                      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                        <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
-                      </g>
-                    </svg>
-                    <svg class="tema-lua" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                      <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
-                    </svg>
-                  </span>
-                </span>
+            <div class="d-flex align-items-center justify-content-between gap-3 py-2 py-lg-0 ms-lg-3">
+              <span class="fw-semibold text-white d-lg-none">Tema</span>
+              <button class="btn btn-outline-light" id="botao-tema" type="button" role="switch" aria-pressed="false" aria-label="Ativar modo escuro">
+                <svg id="tema-sol" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"></path>
+                  </g>
+                </svg>
+                <svg id="tema-lua" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                </svg>
               </button>
             </div>
-            <a class="btn btn-alerta ms-lg-3" href="mural.html#cadastrar">Cadastrar Pet Perdido</a>
+            <div class="d-grid d-lg-block ms-lg-2">
+              <a class="btn btn-warning fw-semibold" href="mural.html#cadastrar">Cadastrar Pet Perdido</a>
             </div>
           </div>
         </div>
@@ -64,17 +60,19 @@
     </header>
 
     <main id="conteudo">
-      <section class="cabecalho-pagina" aria-labelledby="titulo-pagina">
+      <section class="pt-4" aria-labelledby="titulo-pagina">
         <div class="container">
-          <div class="painel-papel">
-            <p class="eyebrow">Antes de sair correndo</p>
-            <h1 class="titulo-pagina" id="titulo-pagina">Guia Prático: O que fazer ao perder ou encontrar um pet?</h1>
-            <p class="mb-0">As primeiras horas pesam mais do que um cartaz perfeito. Abra cada passo, faça o que der na sua quadra e só então publique no mural.</p>
+          <div class="card shadow-sm">
+            <div class="card-body p-3 p-md-4">
+              <p class="text-success-emphasis text-uppercase fw-bold small mb-2">Antes de sair correndo</p>
+              <h1 class="fw-bold" id="titulo-pagina">Guia Prático: O que fazer ao perder ou encontrar um pet?</h1>
+              <p class="mb-0 text-secondary">As primeiras horas pesam mais do que um cartaz perfeito. Abra cada passo, faça o que der na sua quadra e só então publique no mural.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="secao" aria-labelledby="titulo-passos">
+      <section class="py-5" aria-labelledby="titulo-passos">
         <div class="container">
           <h2 class="visually-hidden" id="titulo-passos">Passos do resgate</h2>
           <div class="accordion" id="guiaResgate">
@@ -162,31 +160,31 @@
       </section>
     </main>
 
-    <footer class="rodape">
+    <footer class="bg-dark text-white py-5">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-5">
-            <h2>MimoPet</h2>
+            <h2 class="h4">MimoPet</h2>
             <p class="mb-0">Mural comunitário de pets perdidos. Cartazes, telefones e ONGs deste site são ilustrativos.</p>
           </div>
           <div class="col-6 col-md-3">
-            <h2>ONGs parceiras</h2>
-            <ul>
-              <li>Patas do Bairro — divulgação</li>
-              <li>Coleira Solidária — lar temporário</li>
-              <li><a href="guias.html">Como acionar a rede local</a></li>
+            <h2 class="h4">ONGs parceiras</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1">Patas do Bairro — divulgação</li>
+              <li class="mb-1">Coleira Solidária — lar temporário</li>
+              <li><a class="link-warning fw-semibold" href="guias.html">Como acionar a rede local</a></li>
             </ul>
           </div>
           <div class="col-6 col-md-4">
-            <h2>Mapa do site</h2>
-            <ul>
-              <li><a href="../index.html">Início</a></li>
-              <li><a href="mural.html">Mural de Cartazes</a></li>
-              <li><a href="guias.html">Guia de Resgate</a></li>
+            <h2 class="h4">Mapa do site</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1"><a class="link-warning fw-semibold" href="../index.html">Início</a></li>
+              <li class="mb-1"><a class="link-warning fw-semibold" href="mural.html">Mural de Cartazes</a></li>
+              <li><a class="link-warning fw-semibold" href="guias.html">Guia de Resgate</a></li>
             </ul>
           </div>
         </div>
-        <p class="rodape-base mb-0">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
+        <p class="border-top border-light border-opacity-25 mb-0 mt-4 pt-3">© <span id="ano-atual">2026</span> MimoPet. Interface em HTML, CSS, Bootstrap 5 e JavaScript puro.</p>
       </div>
     </footer>
 
